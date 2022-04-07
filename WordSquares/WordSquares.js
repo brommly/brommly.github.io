@@ -122,10 +122,10 @@ function HandleKeydown(e) {
 
   else if ((13 === e.keyCode) && IsWord()) {	        	// Enter key; check & move down
   	if (CheckGrid()) {
-  		alert(["GREAT JOB!"]);
+  		alert("GREAT JOB!");
   		done = true;
   	} else if ((y + 1) >= n1) {
-  		alert("GAME OVER!");
+  		alert("GAME OVER!\nCorrect Answer: " + ANSWER);
   		done = true;
   	} else {
   		y = y + 1;
