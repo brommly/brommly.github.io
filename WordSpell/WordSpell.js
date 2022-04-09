@@ -90,7 +90,6 @@ function MakeInstance() {
         numWords = getNumWords(bv, BV_COUNT);
     }
     NUM = getNumWords(bv, BV_TOTAL);
-    alert("Max Score" + NUM);
     return str;
 }
 
