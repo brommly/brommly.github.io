@@ -9,7 +9,7 @@ function Back() {
 }
 
 function CenterClick() {
-	if ((WORDS.size == 0) || confirm("New Game?")) {
+	if ((DONE.size == 0) || confirm("New Game?")) {
 		Init();
 	}
 }
@@ -52,8 +52,6 @@ function Init() {
 	var cont = document.getElementById("contents");
 	cont.innerHTML = CreateBoard(n1);
 
-	SetFontSize(2 + Absrt(5 - n1) * 0.4)
-
 	SCORE = 0;
 	LEVEL = 0;
 
@@ -62,7 +60,7 @@ function Init() {
 }
 
 function LeftClick() {
-	if ((WORDS.size == 0) || confirm("New Game?")) {
+	if ((DONE.size == 0) || confirm("New Game?")) {
 		n1 = Math.max(n1 - 2, 4);
 		document.getElementById("sizeBtn").innerHTML = ` &nbsp; ${n1} &nbsp; `;
 		Init();
@@ -105,18 +103,10 @@ function RandomAlpha() {
 }
 
 function RightClick() {
-	if ((WORDS.size == 0) || confirm("New Game?")) {
+	if ((DONE.size == 0) || confirm("New Game?")) {
 		n1 = Math.min(n1 + 2, 10);
 		document.getElementById("sizeBtn").innerHTML = ` &nbsp; ${n1} &nbsp; `;
 		Init();
-	}
-}
-
-function SetFontSize(x) {
-	var elements = document.getElementsByClassName('GridInput');
-
-	for (var i = 0; i < elements.length; i++) {
-		elements[i].style.fontSize = `${x}em`;
 	}
 }
 
@@ -166,8 +156,8 @@ function UpdateText() {
 	var ele = document.getElementById("WordText");
 	ele.innerHTML = `Words: ${DONE.size}`;
 
-  var score = 0;
-  DONE.forEach(x => score += x.length);
+    var score = 0;
+    DONE.forEach(x => score += x.length);
 	ele = document.getElementById("ScoreText");
 	ele.innerHTML = `Score: ${score}`;
 
