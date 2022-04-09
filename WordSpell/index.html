@@ -32,26 +32,36 @@
 
     <br/>
 
-    <div class="BoxCW">
-        <div>
-            <input class="WordInp" id="WordInput" readonly="true"/>
-            <br>
-            <button class="NaviBtn" onclick="Try()">Try</button>
-            <button class="NaviBtn" onclick="Clear()">Clear</button>
-            <button class="NaviBtn" onclick="Back()">Back</button>
+    <div class="BoxCW" style="display: table;">
+        <div style="display: table-row; width: 100%; height: auto; margin: auto; padding: auto;">
+            <div class="BoxBtn" style="display: table-cell;">
+                <input class="WordInp" id="WordInput" readonly="true"/>
+                <br/>
+                <br/>
+
+                <button class="WordBtn" onclick="Try()">Try</button>
+                <button class="WordBtn" onclick="Clear()">Clear</button>
+                <button class="WordBtn" onclick="Back()">Back</button>
+
+                <br/>
+                <br/>
+
+                <div id="contents" class="Contents" style="display: table;"></div>
+                <br/>
+            </div>
+        
+
+            <div class="BoxHint" style="display: table-cell;">
+                <text class="FontHeader" id="WordText"></text>
+                <br/>
+                <text class="FontHeader" id="ScoreText"></text>
+                <hr style="width: 80%; margin: auto; padding: auto;">
+                <br/>
+                <text class="FontNavi" id="WordBox"></text>
+
+
+            </div>
         </div>
-        <br/>
-        <div id="contents" style="display: table; height: 50%; width: 90%; margin: auto auto;">
-        </div>
-    </div>
-
-    <div class="BoxHint">
-
-        <text class="FontHeader" id="WordText"></text>
-        <br>
-        <text class="FontHeader" id="ScoreText"></text>
-        <text class="FontNavi"   id="WordBox"></text>
-
     </div>
 
     <div class="Footer">
