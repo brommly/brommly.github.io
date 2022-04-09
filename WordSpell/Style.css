@@ -36,25 +36,32 @@ body {
     width:               100%;
 }
 
-.BoxCW {
-    display:            inline-block;
-    font-size:          1em;
-    height:             87%;
-    padding:            auto;
-    text-align:         center;
+.BoxBtn {
+    height:             auto;
     width:              55%;
-    vertical-align:     top;
+    margin:             3%;
+    padding:            3%;
+    text-align:         center;
+}
+
+.BoxCW {
+    font-size:            1em;
+    height:               87%;
+    margin:               auto;
+    padding:              auto;
+    text-align:           center;
+    width:                100%;
+    vertical-align:       top;
 }
 
 .BoxHint {
-    border:             1px solid #A0A0A0;
-    display:            inline-block;
     color:              #F0F0F0;
-    padding:            0.5%;
     font-size:          1.1em;
-    height:             87%;
-    width:              40%;
-    text-align:         left;
+    height:             90%;
+    width:              45%;
+    margin:             auto;
+    padding:            auto;
+    text-align:         center;
     overflow-y:         scroll;
 }
 
@@ -72,10 +79,12 @@ button {
 }
 
 .Contents {
+    margin:             auto;
+    padding:            auto;
     border:             0px;
     border-collapse:    collapse;
     text-align:         center;
-    width:              100%;
+    width:              60%;
 }
 
 .Footer {
@@ -176,5 +185,18 @@ html {
 
 .WordInp {
     font-size:          3em;
-    margin:            0.5%;
+    margin:            auto;
+    padding:           auto;
+}
+
+.WordBtn {
+    font-size:          2em;
+    margin:            auto;
+    padding:           auto;
+}
+
+.WordBox {
+    color:              #F0F0F0;
+    font-size:          1.75em;
+    overflow-y:         scroll;
 }
