@@ -16,22 +16,19 @@ function CenterClick() {
 
 function CreateBoard(n1) {
 	var chars = MakeInstance();
-	strBuf = [];
-	strBuf.push('<div style="display: table; width: 90%; margin: auto auto;">');
+	strBuf = [''];
 	var c = 0;
 	for (var i = 0; i < 2; i++) {
-	    strBuf.push('  <div style="display: table-row;">');
+	    strBuf.push('          <div style="display: table-row;">');
 	    for (var j = 0; j < (n1 / 2); j++) {
 	    	var cij = chars[c];
 	    	c += 1;
-				strBuf.push(`    <div style="display: table-cell;" class="GridCell">`);
-				strBuf.push(`        <button class="GridBtn" onclick="TypeChar('${cij}')"">${cij}</button>`);
-	      strBuf.push(`    </div>`)
+			strBuf.push(`            <div style="display: table-cell;" class="GridCell">`);
+			strBuf.push(`                <button class="GridBtn" onclick="TypeChar('${cij}')">${cij}</button>`);
+	        strBuf.push(`            </div>`)
 	    }
-	    strBuf.push('  </div>')
+	    strBuf.push('          </div>\n       ')
 	}
-	strBuf.push('</div>')
-
 	return strBuf.join('\n');
 }
 
