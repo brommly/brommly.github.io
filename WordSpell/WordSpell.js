@@ -62,8 +62,9 @@ function Init() {
 
     SCORE = 0;
     LEVEL = 0;
+    DONE  = new Set();
 
-    localStorage.setItem("n1", n1);
+    localStorage.setItem("n1-sp", n1);
     UpdateText();
 }
 
@@ -78,23 +79,22 @@ function LeftClick() {
 function MakeInstance() {
     var a = 97;
     var numWords = 0;
-    var str = "";
+    CUR_STR = "";
+    CUR_BV  = 0;
     while(numWords < 10) {
-        str = "";
-        var bv  = 0;
+        CUR_STR = RandomStr();
+        CUR_BV  = 0;
         for(var i = 0; i < n1; i++) {
-            str += RandomAlpha();
-            bv  |= str.charCodeAt(i) - a;
+            CUR_BV = CUR_BV | (1 << (CUR_STR.charCodeAt(i) - a));
         }
-
-        numWords = getNumWords(bv, BV_COUNT);
+        numWords = getNumWords(CUR_BV, BV_COUNT);
     }
-    NUM = getNumWords(bv, BV_TOTAL);
-    return str;
+    NUM = getNumWords(CUR_BV, BV_TOTAL);
+    return CUR_STR;
 }
 
 function OnLoad() {
-    var n1s = localStorage.getItem("n1");
+    var n1s = localStorage.getItem("n1-sp");
     if (n1s === null) {
         n1 = 8;
     } else {
@@ -104,10 +104,14 @@ function OnLoad() {
     Init();
 }
 
-function RandomAlpha() {
+function RandomStr() {
     var abet = "abcdefghijklmnopqrstuvwxyz";
-    var r    = Math.random();
-    return abet[Math.floor(abet.length * r)]
+    var str = "";
+    for(var i = 0; i < n1; i++) {
+    	var r    = Math.random();
+    	str += abet[Math.floor(abet.length * r)];
+    }
+    return str;
 }
 
 function RightClick() {
@@ -125,9 +129,12 @@ function Try() {
         return;
     }
 
+    // Sort completed words and display
     var wEle = document.getElementById("WordBox");
-    wEle.innerHTML += "<br/>" + ele.value;
+    var tmp  = wEle.innerHTML + "<br>" + ele.value;
+    wEle.innerHTML = tmp.split(/<br>/).filter(s => s.length > 0).map(s => s.trim()).sort().join("<br>");
 
+    // Add to set of completed and clear input
     DONE.add(ele.value);
     ele.value = "";
 
@@ -156,7 +163,6 @@ function Try() {
 
 function TypeChar(c) {
     var ele = document.getElementById('WordInput');
-
     ele.value += c;
 }
 
@@ -174,12 +180,11 @@ function UpdateText() {
     }
 }
 
-function ZeroPad(x) {
-    return ('00' + x).slice(-2)
-}
+
+var CUR_STR = "";
+var CUR_BV  = 0;
 
 var DONE   = new Set();
-var done   = false;
 var NUM    = 0;
 var LEVEL  = 0;
 var SCORE  = 0;
