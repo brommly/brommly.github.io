@@ -17,10 +17,19 @@ function CenterClick() {
 function CreateBoard(n1) {
 	var chars = MakeInstance();
 	strBuf = [''];
-	var c = 0;
-	for (var i = 0; i < 2; i++) {
+	var c  = 0;
+	var b1 = 0;
+	var b2 = 0;
+	if (window.innerWidth > window.innerHeight) {
+		b1 = 2;
+	    b2 = (n1 / 2);
+	} else {
+		b1 = (n1 / 2);
+		b2 = 2;
+	}
+	for (var i = 0; i < b1; i++) {
 	    strBuf.push('          <div style="display: table-row;">');
-	    for (var j = 0; j < (n1 / 2); j++) {
+	    for (var j = 0; j < b2; j++) {
 	    	var cij = chars[c];
 	    	c += 1;
 			strBuf.push(`            <div style="display: table-cell;" class="GridCell">`);
