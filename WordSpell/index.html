@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>WordSpell</title>
+  <link rel="stylesheet" type="text/css" href="Style.css">
+  <script src="WordSpell.js"></script>
+  <script src="Words.js"></script>
+</head>
+<body>
+
+    <div class="Header">
+        <div style="display: table; height: 100%; width: 100%;">
+            <div style="display: table-row; height: 100%; width: 100%;">
+                <div style="display: table-cell; height: 100%; padding: 1% 0 1% 0.5%; text-align: left; vertical-align: center; width: 30%;">
+                	<a href="index.html">
+                    	<text class="FontHeader">WordSpell</text>
+                    </a>
+                </div>
+                <div style="display: table-cell; height: 100%; padding: 1% 0 1% 0.5%; text-align: center; vertical-align: center; width: 40%;">
+                    <button class="NaviBtn" onclick="LeftClick()">&larr;</button>
+                    <button class="NaviBtn" onclick="CenterClick()" id="sizeBtn"> &nbsp; 5 &nbsp;</button>
+                    <button class="NaviBtn" onclick="RightClick()">&rarr;</button>
+                </div>
+                <div style="display: table-cell; height: 100%; padding: 1% 1% 1% 1%; text-align: right; vertical-align: center; width: 30%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+	<div class="BoxCW">
+        <div>
+            <input class="WordInp" id="WordInput" readonly="true"></input>
+            <br>
+            <button class="NaviBtn" onclick="Try()">Try</button>
+            <button class="NaviBtn" onclick="Clear()">Clear</button>
+            <button class="NaviBtn" onclick="Back()">Back</button>
+        </div>
+        <br/>
+        <div id="contents" style="height: 50%">
+        </div>
+    </div>
+
+
+
+    <div class="BoxHint">
+
+        <text class="FontHeader" id="WordText"></text>
+        <br>
+        <text class="FontHeader" id="ScoreText"></text>
+        <text class="FontNavi"   id="WordBox"></text>
+
+    </div>
+
+    <div class="Footer">
+        <div style="display: table; height: 100%; width: 100%;">
+            <div style="display: table-row; height: 100%; width: 100%;">
+                <div class="CiteText">
+					<cite style="font-size: 0.75em;">WordSpell</cite>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
